@@ -1,0 +1,58 @@
+<template>
+  <h1>Home</h1>
+  <button @click="handleAddDummyName">Click me add data</button>
+  <button @click="givemeData">see data</button>
+</template>
+
+<script setup>
+import { getAuth } from 'firebase/auth'
+
+import { doc, setDoc, getDoc } from 'firebase/firestore'
+import db from '../main'
+</script>
+
+<script>
+export default {
+  data() {
+    return {
+      auth: ''
+    }
+  },
+  methods: {
+    async givemeData() {
+      const userDoc = await getDoc(doc(db, 'users', this.auth.currentUser.uid))
+      if (userDoc.exists()) {
+        const userData = userDoc.data()
+        console.log('User data:', userData)
+        this.clicked = userData.clicked
+      }
+    },
+    async handleAddDummyName() {
+      const userRef = doc(db, 'users', this.auth.currentUser.uid)
+      // Example: Add user-specific data
+      await setDoc(userRef, {
+        name: 'John Doe',
+        email: 'john@example.com'
+
+        // Other user properties
+      })
+    }
+  },
+  computed() {},
+  mounted() {
+    this.auth = getAuth()
+
+    onAuthStateChanged(this.auth, (user) => {
+      if (user) {
+        this.isLoggedIn = true
+      } else {
+        this.isLoggedIn = false
+      }
+    })
+  }
+  mounted() {
+
+  }
+}
+</script>
+<style></style>

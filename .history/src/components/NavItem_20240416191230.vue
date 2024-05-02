@@ -1,0 +1,42 @@
+<script setup>
+import { RouterLink } from 'vue-router'
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
+</script>
+
+<script>
+export default {
+  data() {
+    return {
+      auth: '',
+      isLoggedIn: false
+    }
+  },
+  mounted() {
+    this.auth = getAuth()
+    onAuthStateChanged(this.auth, (user) => {
+      if (user) {
+        this.isLoggedIn = true
+      } else {
+        this.isLoggedIn = false
+      }
+    })
+  }
+}
+</script>
+
+<template>
+  <div class="navContainer">
+    <RouterLink to="/login">Login</RouterLink>
+    <button>log out</button>
+    <RouterLink to="/shop">Shop</RouterLink>
+    <RouterLink to="/settings">Settings</RouterLink>
+  </div>
+</template>
+
+<style scoped>
+.navContainer {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+</style>
