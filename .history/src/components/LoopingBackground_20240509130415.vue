@@ -17,11 +17,8 @@ export default {
       stage: 'start'
     }
   },
-  computed: {
-    getStage() {
-      return this.stage
-    }
-  },
+  computed: {},
+
   watch: {
     'timerStore.stage': function (newstage) {
       console.log(newstage)
@@ -40,11 +37,8 @@ export default {
 .image {
   height: 100vh;
 }
-.running {
+.start {
   animation: studyTime 10s linear infinite;
-}
-.pause {
-  animation-play-state: paused;
 }
 
 .imageBackface {

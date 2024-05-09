@@ -40,11 +40,8 @@ export default {
 .image {
   height: 100vh;
 }
-.running {
+.start {
   animation: studyTime 10s linear infinite;
-}
-.pause {
-  animation-play-state: paused;
 }
 
 .imageBackface {

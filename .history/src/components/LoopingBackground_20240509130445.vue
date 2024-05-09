@@ -19,9 +19,19 @@ export default {
   },
   computed: {
     getStage() {
-      return this.stage
+      switch (this.status) {
+        case 'running':
+          return 'running-class' // Replace with your actual class name
+        case 'paused':
+          return 'paused-class' // Replace with your actual class name
+        case 'started':
+          return 'started-class' // Replace with your actual class name
+        default:
+          return '' // No class if status is unknown
+      }
     }
   },
+
   watch: {
     'timerStore.stage': function (newstage) {
       console.log(newstage)
@@ -40,11 +50,8 @@ export default {
 .image {
   height: 100vh;
 }
-.running {
+.start {
   animation: studyTime 10s linear infinite;
-}
-.pause {
-  animation-play-state: paused;
 }
 
 .imageBackface {

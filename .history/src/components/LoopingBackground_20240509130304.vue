@@ -3,7 +3,7 @@ import { useTimerStore } from '@/stores/timer'
 </script>
 <template>
   <div class="outerContainer">
-    <img class="image" :class="getStage" src="../assets/background.jpg" />
+    <img class="start" src="../assets/background.jpg" />
 
     <img class="imageBackface" src="../assets/background.jpg" />
   </div>
@@ -14,14 +14,11 @@ export default {
   data() {
     return {
       timerStore: useTimerStore(),
-      stage: 'start'
+      stage: 283
     }
   },
-  computed: {
-    getStage() {
-      return this.stage
-    }
-  },
+  computed: {},
+
   watch: {
     'timerStore.stage': function (newstage) {
       console.log(newstage)
@@ -40,11 +37,8 @@ export default {
 .image {
   height: 100vh;
 }
-.running {
+.start {
   animation: studyTime 10s linear infinite;
-}
-.pause {
-  animation-play-state: paused;
 }
 
 .imageBackface {

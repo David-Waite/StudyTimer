@@ -43,9 +43,6 @@ export default {
 .running {
   animation: studyTime 10s linear infinite;
 }
-.pause {
-  animation-play-state: paused;
-}
 
 .imageBackface {
   position: absolute;

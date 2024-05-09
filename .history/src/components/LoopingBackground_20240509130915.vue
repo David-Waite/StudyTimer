@@ -18,8 +18,17 @@ export default {
     }
   },
   computed: {
-    getStage() {
-      return this.stage
+    getStatusClass() {
+    switch (this.stage) {
+      case 'running':
+        return 'running'; // Replace with your actual class name
+      case 'paused':
+
+        return 'paused pause'; // Replace with your actual class name
+      case 'started':
+        return 'started-class'; // Replace with your actual class name
+      default:
+        return ''; // No class if status is unknown
     }
   },
   watch: {
