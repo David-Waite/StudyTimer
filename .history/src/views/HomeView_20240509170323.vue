@@ -1,8 +1,16 @@
+<template>
+  <div class="container">
+    <LoopingBackground />
+    <div class="timerContainer"><TimerItem /></div>
+    <div class="settings"></div>
+  </div>
+</template>
+
 <script setup>
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 import TimerItem from '../components/TimerItem.vue'
-import SettingsPopup from '@/components/SettingsPopup.vue'
+
 import { usePomodoroSettingsStore } from '@/stores/settings'
 import LoopingBackground from '@/components/LoopingBackground.vue'
 </script>
@@ -31,15 +39,6 @@ export default {
   }
 }
 </script>
-
-<template>
-  <div class="container">
-    <LoopingBackground />
-    <div class="timerContainer"><TimerItem /></div>
-    <SettingsPopup />
-  </div>
-</template>
-
 <style scoped>
 .container {
   width: 100vw;
@@ -52,5 +51,10 @@ export default {
   position: absolute;
   top: 10vh;
   padding: 50px;
+}
+.settings {
+  width: 50px;
+  height: 50px;
+  background-color: green;
 }
 </style>

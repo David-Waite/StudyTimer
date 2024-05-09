@@ -31,15 +31,13 @@ export default {
   }
 }
 </script>
-
 <template>
   <div class="container">
     <LoopingBackground />
     <div class="timerContainer"><TimerItem /></div>
-    <SettingsPopup />
+    <div class="settings"><SettingsPopup /></div>
   </div>
 </template>
-
 <style scoped>
 .container {
   width: 100vw;
@@ -52,5 +50,15 @@ export default {
   position: absolute;
   top: 10vh;
   padding: 50px;
+}
+.settings {
+  position: absolute;
+  width: 90vw;
+  height: 90vh;
+  top: 5vh;
+  left: 5vw;
+  z-index: 2;
+  background: rgba(41, 27, 17, 0.99);
+  backdrop-filter: blur(5px);
 }
 </style>
