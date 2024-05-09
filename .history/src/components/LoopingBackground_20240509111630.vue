@@ -9,7 +9,6 @@
   position: absolute;
   top: 0px;
   left: 0;
-  -webkit-backface-visibility: hidden;
 }
 .image {
   height: 100vh;
