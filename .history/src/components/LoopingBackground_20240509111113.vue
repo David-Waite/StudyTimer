@@ -1,6 +1,8 @@
 <template>
   <div class="outerContainer">
     <img class="image" src="../assets/background.jpg" />
+    <!-- <img class="image imagePos1" src="../assets/davidsgame.jpg" />
+    <img class="image imagePos2" src="../assets/davidsgame.jpg" /> -->
   </div>
 </template>
 
@@ -12,6 +14,13 @@
 }
 .image {
   height: 100vh;
+}
+.imagePos1 {
+  animation: studyTime 10s linear infinite;
+}
+.imagePos2 {
+  position: absolute;
+  animation: studyTime 10s linear infinite;
 }
 
 .image {

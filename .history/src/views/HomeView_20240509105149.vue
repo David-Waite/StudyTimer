@@ -68,5 +68,6 @@ export default {
   position: absolute;
   top: 10vh;
   padding: 50px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.9) 70%, rgba(0, 0, 0, 0) 100%);
 }
 </style>

@@ -67,6 +67,10 @@ export default {
 .timerContainer {
   position: absolute;
   top: 10vh;
-  padding: 50px;
+  background-color: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(0, 0, 0, 0.1) 88%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 </style>

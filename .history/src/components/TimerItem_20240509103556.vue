@@ -76,7 +76,7 @@ export default {
 }
 button {
   background-color: transparent;
-  border: 2px solid rgb(237, 237, 237);
+  border: 2px solid black;
   border-radius: 50%;
   padding: 3px;
   display: flex;
@@ -86,7 +86,6 @@ button {
 .buttonContiainer svg {
   font-size: 24px;
   font-weight: 900;
-  color: rgb(237, 237, 237);
 }
 .base-timer {
   position: relative;
@@ -105,7 +104,7 @@ button {
 
 .base-timer__path-elapsed {
   stroke-width: 1px;
-  stroke: rgb(237, 237, 237);
+  stroke: white;
 }
 
 .base-timer__path-remaining {
@@ -128,6 +127,5 @@ button {
   align-items: center;
   justify-content: center;
   font-size: 48px;
-  color: white;
 }
 </style>

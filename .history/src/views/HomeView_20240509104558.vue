@@ -67,6 +67,6 @@ export default {
 .timerContainer {
   position: absolute;
   top: 10vh;
-  padding: 50px;
+  background-color: green;
 }
 </style>

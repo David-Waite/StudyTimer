@@ -86,7 +86,6 @@ button {
 .buttonContiainer svg {
   font-size: 24px;
   font-weight: 900;
-  color: rgb(237, 237, 237);
 }
 .base-timer {
   position: relative;
@@ -128,6 +127,5 @@ button {
   align-items: center;
   justify-content: center;
   font-size: 48px;
-  color: white;
 }
 </style>

@@ -58,16 +58,10 @@ export default {
 .navOuterContainer {
   position: absolute;
   top: 0;
-  z-index: 1;
+  z-index: 2;
 }
 .navContainer {
   width: 100vw;
-  background-color: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.1) 70.5%,
-    rgba(0, 0, 0, 0) 100%
-  );
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -84,8 +78,6 @@ export default {
 }
 .navContainer svg {
   font-size: 30px;
-  color: white;
+  color: black;
 }
-
-/* Rectangle 21 */
 </style>
