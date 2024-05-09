@@ -43,7 +43,7 @@ export default {
   animation: studyTime 10s linear infinite;
 }
 .start {
-  animation: none;
+  animation-play-state: start;
 }
 .running {
   animation-play-state: running;

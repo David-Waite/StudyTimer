@@ -19,7 +19,6 @@ export default {
   },
   computed: {
     getStage() {
-      console.log(this.stage)
       return this.stage
     }
   },
@@ -40,15 +39,12 @@ export default {
 }
 .image {
   height: 100vh;
-  animation: studyTime 10s linear infinite;
-}
-.start {
-  animation: none;
 }
 .running {
   animation-play-state: running;
+  animation: studyTime 10s linear infinite;
 }
-.paused {
+.pause {
   animation-play-state: paused;
 }
 

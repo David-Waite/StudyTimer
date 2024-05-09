@@ -43,13 +43,14 @@ export default {
   animation: studyTime 10s linear infinite;
 }
 .start {
-  animation: none;
+  animation-play-state: paused;
 }
 .running {
   animation-play-state: running;
 }
 .paused {
-  animation-play-state: paused;
+  animation: studyTime 10s linear;
+  /* animation-play-state: paused; */
 }
 
 .imageBackface {

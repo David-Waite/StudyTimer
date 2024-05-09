@@ -42,9 +42,6 @@ export default {
   height: 100vh;
   animation: studyTime 10s linear infinite;
 }
-.start {
-  animation: none;
-}
 .running {
   animation-play-state: running;
 }
