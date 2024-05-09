@@ -2,7 +2,6 @@
   <div class="outerContainer">
     <img class="image imagePos1" src="../assets/davidsgame.jpg" />
     <img class="image imagePos2" src="../assets/davidsgame.jpg" />
-    <img class="imageBackface" src="../assets/davidsgame.jpg" />
   </div>
 </template>
 
@@ -21,13 +20,6 @@
 .imagePos2 {
   position: absolute;
   animation: studyTime 10s linear infinite;
-}
-.imageBackface {
-  position: absolute;
-  z-index: -1;
-  height: 100vh;
-  top: 0;
-  left: 0;
 }
 
 @keyframes studyTime {
