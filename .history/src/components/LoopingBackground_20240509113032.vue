@@ -1,7 +1,6 @@
 <template>
   <div class="outerContainer">
     <img class="image" src="../assets/background.jpg" />
-    <!-- to help the flickering -->
     <img class="imageBackface" src="../assets/background.jpg" />
   </div>
 </template>

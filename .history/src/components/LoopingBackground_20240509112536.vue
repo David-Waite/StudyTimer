@@ -1,7 +1,6 @@
 <template>
   <div class="outerContainer">
     <img class="image" src="../assets/background.jpg" />
-    <!-- to help the flickering -->
     <img class="imageBackface" src="../assets/background.jpg" />
   </div>
 </template>
@@ -12,19 +11,14 @@
   top: 0px;
   left: 0;
 }
-.imageBackface {
-  position: absolute;
-  z-index: -1;
-  height: 100vh;
-  top: 0;
-  left: 0;
-}
 .image {
   height: 100vh;
 }
 
 .image {
   animation: studyTime 10s linear infinite;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 @keyframes studyTime {
