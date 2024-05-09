@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <LoopingBackground />
-    <div class="timerContainer"><TimerItem /></div>
+    <div class="timerContainer"></div>
+    <TimerItem />
   </div>
 </template>
 
@@ -63,9 +64,5 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.timerContainer {
-  position: absolute;
-  top: 10vh;
 }
 </style>

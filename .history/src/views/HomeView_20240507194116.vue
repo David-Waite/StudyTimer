@@ -1,8 +1,5 @@
 <template>
-  <div class="container">
-    <LoopingBackground />
-    <div class="timerContainer"><TimerItem /></div>
-  </div>
+  <div class="container"><img class="image" src="../assets/davidsgame.jpg" /><TimerItem /></div>
 </template>
 
 <script setup>
@@ -11,7 +8,6 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import TimerItem from '../components/TimerItem.vue'
 
 import { usePomodoroSettingsStore } from '@/stores/settings'
-import LoopingBackground from '@/components/LoopingBackground.vue'
 </script>
 
 <script>
@@ -58,14 +54,19 @@ export default {
 </script>
 <style scoped>
 .container {
-  width: 100vw;
-  overflow: hidden;
+  width: 100%;
+
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
-.timerContainer {
+.image {
   position: absolute;
-  top: 10vh;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  top: 50;
+  left: 0;
 }
 </style>

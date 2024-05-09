@@ -10,7 +10,7 @@ import NavItem from './components/NavItem.vue'
 
 <style>
 body {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 * {
   box-sizing: border-box;

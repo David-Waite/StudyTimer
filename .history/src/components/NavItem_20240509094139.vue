@@ -58,6 +58,7 @@ export default {
 .navOuterContainer {
   position: absolute;
   top: 0;
+
   z-index: 2;
 }
 .navContainer {

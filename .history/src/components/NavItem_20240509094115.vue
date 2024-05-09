@@ -61,7 +61,6 @@ export default {
   z-index: 2;
 }
 .navContainer {
-  width: 100vw;
   padding: 20px;
   display: flex;
   justify-content: space-between;

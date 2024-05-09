@@ -1,7 +1,8 @@
 <template>
   <div class="container">
+    <img class="image" src="../assets/davidsgame.jpg" />
+    <TimerItem />
     <LoopingBackground />
-    <div class="timerContainer"><TimerItem /></div>
   </div>
 </template>
 
@@ -58,14 +59,19 @@ export default {
 </script>
 <style scoped>
 .container {
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.timerContainer {
+.image {
   position: absolute;
-  top: 10vh;
+  height: 100%;
+
+  object-fit: cover;
+  overflow: hidden;
+  top: 0;
+  left: 0;
 }
 </style>

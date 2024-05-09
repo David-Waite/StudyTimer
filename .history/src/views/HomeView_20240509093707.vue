@@ -64,8 +64,4 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.timerContainer {
-  position: absolute;
-  top: 10vh;
-}
 </style>

@@ -1,0 +1,18 @@
+<template>
+  <div class="outerContainer">
+    <img class="image imagePos1" src="../assets/davidsgame.jpg" />
+  </div>
+</template>
+
+<style scoped>
+.outerContainer {
+  position: relative;
+  top: 0px;
+}
+.image {
+  height: 100vh;
+  position: absolute;
+}
+.imagePos1 {
+}
+</style>

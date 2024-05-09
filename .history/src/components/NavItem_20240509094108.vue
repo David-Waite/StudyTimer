@@ -57,11 +57,8 @@ export default {
 <style scoped>
 .navOuterContainer {
   position: absolute;
-  top: 0;
-  z-index: 2;
 }
 .navContainer {
-  width: 100vw;
   padding: 20px;
   display: flex;
   justify-content: space-between;

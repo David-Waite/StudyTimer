@@ -42,26 +42,19 @@ export default {
 </script>
 
 <template>
-  <div class="navOuterContainer">
-    <div class="navContainer" v-if="useRoute().path != '/login' && useRoute().path != '/signup'">
-      <div>
-        <RouterLink to="/">Welcome {{ userName }} </RouterLink>
-        <RouterLink to="/shop"><BIconShop /></RouterLink>
-      </div>
-
-      <RouterLink to="/settings"><BIconGearFill /></RouterLink>
+  <div class="navContainer" v-if="useRoute().path != '/login' && useRoute().path != '/signup'">
+    <div>
+      <RouterLink to="/">Welcome {{ userName }} </RouterLink>
+      <RouterLink to="/shop"><BIconShop /></RouterLink>
     </div>
+
+    <RouterLink to="/settings"><BIconGearFill /></RouterLink>
   </div>
 </template>
 
 <style scoped>
-.navOuterContainer {
-  position: absolute;
-  top: 0;
-  z-index: 2;
-}
 .navContainer {
-  width: 100vw;
+  height: 77px;
   padding: 20px;
   display: flex;
   justify-content: space-between;
