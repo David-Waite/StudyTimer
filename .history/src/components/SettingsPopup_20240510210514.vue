@@ -113,7 +113,7 @@ export default {
   width: 600px;
   z-index: 2;
   background: rgba(41, 27, 17, 0.99);
-
+  backdrop-filter: blur(5px);
   padding: 60px 20px 10px;
 }
 h1 {

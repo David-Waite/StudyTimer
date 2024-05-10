@@ -54,7 +54,7 @@ export default {
         <div class="inputcontainer">
           <input
             v-model="settings.settings.pomodoroTime"
-            inputmode="numeric"
+            type="number"
             id="pomodoroTime"
             step="0.01"
           />
@@ -63,23 +63,13 @@ export default {
 
         <label for="shortRest">Short rest</label>
         <div class="inputcontainer">
-          <input
-            v-model="settings.settings.shortRest"
-            inputmode="numeric"
-            id="shortRest"
-            step="0.01"
-          />
+          <input v-model="settings.settings.shortRest" type="number" id="shortRest" step="0.01" />
           <p>M</p>
         </div>
 
         <label for="longRest">Long rest</label>
         <div class="inputcontainer">
-          <input
-            v-model="settings.settings.longRest"
-            inputmode="numeric"
-            id="longRest"
-            step="0.01"
-          />
+          <input v-model="settings.settings.longRest" type="number" id="longRest" step="0.01" />
           <p>M</p>
         </div>
 
@@ -87,7 +77,7 @@ export default {
         <div class="inputcontainer">
           <input
             v-model="settings.settings.pomodoroTillLongRest"
-            inputmode="numeric"
+            inputmode="”numeric”"
             id="pomodoroTillLongRest"
             step="0.01"
           />
@@ -113,7 +103,7 @@ export default {
   width: 600px;
   z-index: 2;
   background: rgba(41, 27, 17, 0.99);
-
+  backdrop-filter: blur(5px);
   padding: 60px 20px 10px;
 }
 h1 {
@@ -181,7 +171,7 @@ h2 {
 
 .formContent {
   display: grid;
-  grid-template-columns: 1fr 80px;
+  grid-template-columns: 1fr 90px;
   row-gap: 30px;
   align-items: center;
 }
@@ -193,10 +183,7 @@ label {
 .inputcontainer {
   display: flex;
   align-items: center;
-  gap: 5px;
-}
-.inputcontainer p {
-  color: white;
+  gap: 10px;
 }
 input {
   background-color: transparent;

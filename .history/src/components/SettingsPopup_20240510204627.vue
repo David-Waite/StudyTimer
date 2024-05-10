@@ -50,49 +50,27 @@ export default {
 
     <form @submit.prevent="settings.updateSettings()">
       <div class="formContent">
-        <label for="pomodoroTime">Study</label>
-        <div class="inputcontainer">
-          <input
-            v-model="settings.settings.pomodoroTime"
-            inputmode="numeric"
-            id="pomodoroTime"
-            step="0.01"
-          />
-          <p>M</p>
-        </div>
+        <label for="pomodoroTime">Pomodoro Time</label>
+        <input
+          v-model="settings.settings.pomodoroTime"
+          type="number"
+          id="pomodoroTime"
+          step="0.01"
+        />
 
-        <label for="shortRest">Short rest</label>
-        <div class="inputcontainer">
-          <input
-            v-model="settings.settings.shortRest"
-            inputmode="numeric"
-            id="shortRest"
-            step="0.01"
-          />
-          <p>M</p>
-        </div>
+        <label for="shortRest">short Rest</label>
+        <input v-model="settings.settings.shortRest" type="number" id="shortRest" step="0.01" />
 
-        <label for="longRest">Long rest</label>
-        <div class="inputcontainer">
-          <input
-            v-model="settings.settings.longRest"
-            inputmode="numeric"
-            id="longRest"
-            step="0.01"
-          />
-          <p>M</p>
-        </div>
+        <label for="longRest">long Rest</label>
+        <input v-model="settings.settings.longRest" type="number" id="longRest" step="0.01" />
 
-        <label for="longRest">Study periods until long rest</label>
-        <div class="inputcontainer">
-          <input
-            v-model="settings.settings.pomodoroTillLongRest"
-            inputmode="numeric"
-            id="pomodoroTillLongRest"
-            step="0.01"
-          />
-          <p>M</p>
-        </div>
+        <label for="longRest">pomodoro Till Long Rest</label>
+        <input
+          v-model="settings.settings.pomodoroTillLongRest"
+          type="number"
+          id="pomodoroTillLongRest"
+          step="0.01"
+        />
       </div>
       <button class="saveChangesButton" type="submit">Save changes</button>
     </form>
@@ -113,7 +91,7 @@ export default {
   width: 600px;
   z-index: 2;
   background: rgba(41, 27, 17, 0.99);
-
+  backdrop-filter: blur(5px);
   padding: 60px 20px 10px;
 }
 h1 {
@@ -136,7 +114,7 @@ h2 {
   font-weight: 500;
 }
 .saveChangesButton {
-  margin: 20px auto 10px;
+  margin: 20px auto;
   background-color: #551d1b;
   padding: 8px 25px;
   color: #d8c25a;
@@ -147,7 +125,7 @@ h2 {
   position: absolute;
   right: 20px;
   top: 20px;
-  color: #d8c25a;
+  color: white;
   cursor: pointer;
 }
 .logoutBtn {
@@ -165,23 +143,17 @@ h2 {
   border: none;
 }
 
-.logoutBtn,
-.saveChangesButton {
+.logoutBtn .saveChangesButton {
   cursor: pointer;
 }
 
-.logoutBtn:hover,
-.saveChangesButton:hover {
-  background-color: #3d1514;
-}
-
 .close:hover {
-  color: #c0ae50;
+  color: rgb(172, 172, 172);
 }
 
 .formContent {
   display: grid;
-  grid-template-columns: 1fr 80px;
+  grid-template-columns: 1fr 70px;
   row-gap: 30px;
   align-items: center;
 }
@@ -189,19 +161,9 @@ h2 {
 label {
   color: white;
 }
-
-.inputcontainer {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.inputcontainer p {
-  color: white;
-}
 input {
   background-color: transparent;
   color: white;
   border-radius: 5px;
-  width: 100%;
 }
 </style>

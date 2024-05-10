@@ -113,7 +113,7 @@ export default {
   width: 600px;
   z-index: 2;
   background: rgba(41, 27, 17, 0.99);
-
+  backdrop-filter: blur(5px);
   padding: 60px 20px 10px;
 }
 h1 {
@@ -181,7 +181,7 @@ h2 {
 
 .formContent {
   display: grid;
-  grid-template-columns: 1fr 80px;
+  grid-template-columns: 1fr 90px;
   row-gap: 30px;
   align-items: center;
 }
@@ -193,10 +193,7 @@ label {
 .inputcontainer {
   display: flex;
   align-items: center;
-  gap: 5px;
-}
-.inputcontainer p {
-  color: white;
+  gap: 10px;
 }
 input {
   background-color: transparent;

@@ -51,7 +51,7 @@ export default {
 
       <RouterLink v-if="$route.name === `settings`" to="/"><BIconGearFill /></RouterLink>
 
-      <RouterLink v-if="$route.name === `home`" to="/settings"><BIconGearFill /></RouterLink>
+      <RouterLink v-if="$route.name === `/`" to="/settings"><BIconGearFill /></RouterLink>
     </div>
   </div>
 </template>

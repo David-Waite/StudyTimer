@@ -49,9 +49,7 @@ export default {
         <RouterLink to="/shop"><BIconShop /></RouterLink>
       </div>
 
-      <RouterLink v-if="$route.name === `settings`" to="/"><BIconGearFill /></RouterLink>
-
-      <RouterLink v-if="$route.name === `home`" to="/settings"><BIconGearFill /></RouterLink>
+      <div @click="toggleSettings"><BIconGearFill /></div>
     </div>
   </div>
 </template>

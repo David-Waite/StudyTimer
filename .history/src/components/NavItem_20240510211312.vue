@@ -21,6 +21,13 @@ export default {
     handleSignOut() {
       signOut(this.auth)
       router.push('/signup')
+    },
+    toggleSettings() {
+      if (this.$router.name === `settings`) {
+        router.push('/')
+      } else {
+        router.push('/settings')
+      }
     }
   },
   mounted() {
@@ -49,9 +56,7 @@ export default {
         <RouterLink to="/shop"><BIconShop /></RouterLink>
       </div>
 
-      <RouterLink v-if="$route.name === `settings`" to="/"><BIconGearFill /></RouterLink>
-
-      <RouterLink v-if="$route.name === `home`" to="/settings"><BIconGearFill /></RouterLink>
+      <div @click="toggleSettings"><BIconGearFill /></div>
     </div>
   </div>
 </template>
