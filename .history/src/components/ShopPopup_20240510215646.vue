@@ -1,0 +1,64 @@
+<script setup>
+import { usePomodoroSettingsStore } from '@/stores/settings'
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
+import router from '@/router'
+import { BIconXLg } from 'bootstrap-icons-vue'
+const settings = usePomodoroSettingsStore()
+settings.init()
+</script>
+
+<script>
+export default {
+  data() {
+    return {
+      auth: '',
+      open: true
+    }
+  },
+  methods: {
+    handleSignOut() {
+      signOut(this.auth)
+      router.push('/signup')
+    },
+    closeSettings() {
+      console.log('closing')
+      this.$router.push('/')
+    }
+  },
+  computed() {},
+  mounted() {
+    //might not need this have a proper check
+    this.auth = getAuth()
+
+    const settings = usePomodoroSettingsStore()
+
+    onAuthStateChanged(this.auth, (user) => {
+      if (!user) {
+        this.$router.push('/login')
+        return
+      }
+      settings.init()
+    })
+  }
+}
+</script>
+<template>
+  <div v-if="$route.name === `shop`" class="settings"></div>
+</template>
+
+<style scoped>
+.settings {
+  border: 7px solid #551d1b;
+  border-radius: 60px;
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  z-index: 2;
+  background: rgba(41, 27, 17, 0.99);
+
+  padding: 60px 20px 10px;
+}
+</style>
