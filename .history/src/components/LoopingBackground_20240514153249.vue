@@ -4,7 +4,7 @@
     <img class="image" :class="getStage" src="../assets/background.jpg" />
 
     <img class="imageBackface" src="../assets/background.jpg" />
-    <!-- update with working animations and play based on state -->
+    update with working animations and play based on state
     <img class="vehicle" src="../assets/vehicles/shop/van.png" alt="" />
   </div>
 </template>

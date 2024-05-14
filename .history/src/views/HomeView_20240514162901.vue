@@ -38,13 +38,11 @@ export default {
         const userDoc = await getDoc(doc(db, 'users', user.uid))
         const userData = userDoc.data()
         if (userDoc.exists()) {
-          this.userData = userData
-
-          console.log(userData.vehiclesOwned)
           let vechiclesToBeAdded = []
+          this.userData = userData
+          console.log(userData.vehiclesOwned)
           if (userData.vehiclesOwned.length == 0) {
             console.log('empty')
-            console.log(vehiclesSnapshot)
 
             // const washingtonRef = doc(db, 'users', this.auth.currentUser.uid)
             // await updateDoc(washingtonRef, { vehiclesOwned: [] })

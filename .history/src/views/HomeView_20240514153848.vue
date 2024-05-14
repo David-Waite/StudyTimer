@@ -4,7 +4,6 @@ import TimerItem from '../components/TimerItem.vue'
 import SettingsPopup from '@/components/SettingsPopup.vue'
 import LoopingBackground from '@/components/LoopingBackground.vue'
 import ShopPopup from '@/components/ShopPopup.vue'
-import { collection, getDocs } from 'firebase/firestore'
 
 import { doc, getDoc, updateDoc } from 'firebase/firestore'
 import db from '@/main'
@@ -22,33 +21,11 @@ export default {
   methods: {
     async fetchUser(user) {
       if (user) {
-        //getting vehicles data
-        const vehiclesCollectionRef = collection(db, 'vehicles')
-
-        // Get all documents in the 'vehicles' collection
-        const vehiclesSnapshot = await getDocs(vehiclesCollectionRef)
-
-        // Log each document's data
-        vehiclesSnapshot.forEach((doc) => {
-          console.log(doc.data())
-        })
-
-        //getting vehicles data
-
         const userDoc = await getDoc(doc(db, 'users', user.uid))
         const userData = userDoc.data()
         if (userDoc.exists()) {
+          console.log(userData)
           this.userData = userData
-
-          console.log(userData.vehiclesOwned)
-          let vechiclesToBeAdded = []
-          if (userData.vehiclesOwned.length == 0) {
-            console.log('empty')
-            console.log(vehiclesSnapshot)
-
-            // const washingtonRef = doc(db, 'users', this.auth.currentUser.uid)
-            // await updateDoc(washingtonRef, { vehiclesOwned: [] })
-          }
         }
       }
     },

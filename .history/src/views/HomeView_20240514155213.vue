@@ -4,7 +4,6 @@ import TimerItem from '../components/TimerItem.vue'
 import SettingsPopup from '@/components/SettingsPopup.vue'
 import LoopingBackground from '@/components/LoopingBackground.vue'
 import ShopPopup from '@/components/ShopPopup.vue'
-import { collection, getDocs } from 'firebase/firestore'
 
 import { doc, getDoc, updateDoc } from 'firebase/firestore'
 import db from '@/main'
@@ -23,32 +22,31 @@ export default {
     async fetchUser(user) {
       if (user) {
         //getting vehicles data
-        const vehiclesCollectionRef = collection(db, 'vehicles')
+        var docRef = db.collection('vehicles').doc('nuafCZUEWigEf4DpiZ3p')
 
-        // Get all documents in the 'vehicles' collection
-        const vehiclesSnapshot = await getDocs(vehiclesCollectionRef)
-
-        // Log each document's data
-        vehiclesSnapshot.forEach((doc) => {
-          console.log(doc.data())
-        })
+        docRef
+          .get()
+          .then((doc) => {
+            if (doc.exists) {
+              var dataArray = doc.data().yourArrayName // replace 'yourArrayName' with the name of your array
+              dataArray.forEach((item) => {
+                console.log(item)
+              })
+            } else {
+              console.log('No such document!')
+            }
+          })
+          .catch((error) => {
+            console.log('Error getting document:', error)
+          })
 
         //getting vehicles data
 
         const userDoc = await getDoc(doc(db, 'users', user.uid))
         const userData = userDoc.data()
         if (userDoc.exists()) {
+          console.log(userData)
           this.userData = userData
-
-          console.log(userData.vehiclesOwned)
-          let vechiclesToBeAdded = []
-          if (userData.vehiclesOwned.length == 0) {
-            console.log('empty')
-            console.log(vehiclesSnapshot)
-
-            // const washingtonRef = doc(db, 'users', this.auth.currentUser.uid)
-            // await updateDoc(washingtonRef, { vehiclesOwned: [] })
-          }
         }
       }
     },

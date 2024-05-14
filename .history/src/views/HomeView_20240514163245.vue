@@ -44,7 +44,7 @@ export default {
           let vechiclesToBeAdded = []
           if (userData.vehiclesOwned.length == 0) {
             console.log('empty')
-            console.log(vehiclesSnapshot)
+            console.log(vechiclesToBeAdded)
 
             // const washingtonRef = doc(db, 'users', this.auth.currentUser.uid)
             // await updateDoc(washingtonRef, { vehiclesOwned: [] })

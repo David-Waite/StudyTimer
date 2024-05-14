@@ -4,8 +4,7 @@
     <img class="image" :class="getStage" src="../assets/background.jpg" />
 
     <img class="imageBackface" src="../assets/background.jpg" />
-    <!-- update with working animations and play based on state -->
-    <img class="vehicle" src="../assets/vehicles/shop/van.png" alt="" />
+    <img class="vehicle" src="../assets/vehicles/animation/vanAnimation.png" alt="" />
   </div>
 </template>
 
@@ -31,11 +30,9 @@ export default {
 <style scoped>
 .vehicle {
   position: absolute;
-  left: 0;
-  top: 60vh;
-  height: 30vh;
-  left: 50vw;
-  transform: translateX(-50%);
+  height: 100vh;
+  object-fit: cover;
+  z-index: 3;
 }
 .outerContainer {
   position: absolute;
