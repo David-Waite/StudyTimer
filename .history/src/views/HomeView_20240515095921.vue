@@ -23,18 +23,15 @@ export default {
     async fetchUser(user) {
       if (user) {
         //getting vehicles data
-        // const vehiclesCollectionRef = collection(db, 'vehicles')
+        const vehiclesCollectionRef = collection(db, 'vehicles')
 
         // Get all documents in the 'vehicles' collection
-        const vehiclesSnapshot = await getDoc(doc(db, 'vehicles', 'nuafCZUEWigEf4DpiZ3p'))
-        const vehiclesData = vehiclesSnapshot.data()
-        console.log(vehiclesData.List)
+        const vehiclesSnapshot = await getDocs(vehiclesCollectionRef)
 
         // Log each document's data
-        // vehiclesSnapshot.forEach((doc) => {
-        //   console.log(doc)
-        //   console.log(doc.data())
-        // })
+        vehiclesSnapshot.forEach((doc) => {
+          console.log(doc.data())
+        })
 
         //getting vehicles data
 
@@ -46,9 +43,10 @@ export default {
           console.log(userData.vehiclesOwned)
           let vechiclesToBeAdded = []
           if (userData.vehiclesOwned.length == 0) {
-            // console.log('empty')
-            // console.log(vehiclesSnapshot.data())
-            // console.log('here')
+            console.log('empty')
+            console.log(vehiclesSnapshot.docs.data())
+            console.log('here')
+
             // const washingtonRef = doc(db, 'users', this.auth.currentUser.uid)
             // await updateDoc(washingtonRef, { vehiclesOwned: [] })
           }

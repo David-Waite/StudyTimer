@@ -28,7 +28,7 @@ export default {
         // Get all documents in the 'vehicles' collection
         const vehiclesSnapshot = await getDoc(doc(db, 'vehicles', 'nuafCZUEWigEf4DpiZ3p'))
         const vehiclesData = vehiclesSnapshot.data()
-        console.log(vehiclesData.List)
+        console.log(vehiclesData.length())
 
         // Log each document's data
         // vehiclesSnapshot.forEach((doc) => {
