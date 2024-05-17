@@ -1,6 +1,9 @@
 <script setup>
-import Van from '../assets/vehicles/shop/Van.png'
-import TheGhost from '../assets/vehicles/shop/TheGhost.png'
+import VanMoving from '../assets/vehicles/shop/vanMoving.gif'
+import VanStill from '../assets/vehicles/shop/VanStill.png'
+
+import TheGhostMoving from '../assets/vehicles/shop/TheGhostMoving.gif'
+import TheGhostStill from '../assets/vehicles/shop/TheGhostStill.png'
 </script>
 <template>
   <div class="outerContainer">
@@ -9,12 +12,22 @@ import TheGhost from '../assets/vehicles/shop/TheGhost.png'
     <img class="image foreground" :class="getStage" src="../assets/foreground.png" />
 
     <img class="imageBackface" src="../assets/imageBackface.png" />
-    <!-- update with working animations and play based on state -->
+
     <img
       class="vehicle"
+      :class="stage != 'running' && 'vehicleMoving'"
       :src="
-        (getEquippedVehicleName() == `Van` && Van) ||
-        (getEquippedVehicleName() == `The Ghost` && TheGhost)
+        (getEquippedVehicleName() == `Van` && VanMoving) ||
+        (getEquippedVehicleName() == `The Ghost` && TheGhostMoving)
+      "
+      alt=""
+    />
+    <img
+      v-if="stage === 'paused' || stage === 'start'"
+      class="vehicle"
+      :src="
+        (getEquippedVehicleName() == `Van` && VanStill) ||
+        (getEquippedVehicleName() == `The Ghost` && TheGhostStill)
       "
       alt=""
     />
@@ -51,10 +64,15 @@ export default {
 .vehicle {
   position: absolute;
   left: 0;
-  top: 50vh;
-  height: 31vh;
+  top: 45vh;
+  height: 40vh;
   left: 50vw;
   transform: translateX(-50%);
+}
+.vehicleMoving {
+  height: 30vh;
+  top: 50vh;
+  display: none;
 }
 
 .foreground {
@@ -86,7 +104,7 @@ export default {
 }
 
 .start {
-  animation: none;
+  animation-play-state: paused;
 }
 .running {
   animation-play-state: running;

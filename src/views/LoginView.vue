@@ -6,6 +6,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 
 <template>
   <div class="container">
+    <img class="background" src="../assets/imageBackface.png" alt="background image " />
     <h1>A Trip to <br /><span>Pomodoro</span></h1>
     <form @submit.prevent="registerUser">
       <div>
@@ -31,7 +32,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
     </form>
   </div>
   <div class="messages">
-    <p>Don't have an account? <RouterLink to="/signup">Click here</RouterLink></p>
+    <p>Don't have an account? <RouterLink class="link" to="/signup">Click here</RouterLink></p>
   </div>
 </template>
 
@@ -77,11 +78,19 @@ export default {
 </script>
 
 <style scoped>
+.background {
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
 h1 {
   margin-top: 20vh;
   line-height: 36px;
   text-align: center;
   margin-bottom: 48px;
+  color: white;
 }
 h1 span {
   font-size: 71.66px;
@@ -94,6 +103,7 @@ h1 span {
   text-align: center;
   align-items: center;
   gap: 32px;
+  color: white;
 }
 .messages div {
   background-color: green;
@@ -124,15 +134,22 @@ input {
 .errorMsg i {
   font-size: 14px;
 }
+.link {
+  color: #0000ee;
+}
 
 button {
   padding: 8px 14px;
   border-radius: 16px;
-  border: 2px solid black;
+  border: 2px solid white;
   width: 370px;
+  color: white;
   cursor: pointer;
+  background-color: black;
 }
 button:hover {
-  background-color: lightblue;
+  background-color: white;
+  border-color: black;
+  color: black;
 }
 </style>

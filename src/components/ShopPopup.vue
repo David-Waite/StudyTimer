@@ -1,7 +1,7 @@
 <script setup>
 import { BIconXLg } from 'bootstrap-icons-vue'
-import Van from '../assets/vehicles/shop/Van.png'
-import TheGhost from '../assets/vehicles/shop/TheGhost.png'
+import Van from '../assets/vehicles/shop/VanStill.png'
+import TheGhost from '../assets/vehicles/shop/TheGhostStill.png'
 </script>
 
 <script>
