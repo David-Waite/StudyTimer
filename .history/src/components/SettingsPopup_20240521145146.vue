@@ -228,6 +228,9 @@ input {
 }
 
 @media (max-width: 360px) {
+  .settings {
+    height: 70vh;
+  }
   .logoutBtn {
     bottom: -55px;
     font-size: 18px;

@@ -228,9 +228,40 @@ input {
 }
 
 @media (max-width: 360px) {
+  .settings {
+    height: 70vh;
+  }
   .logoutBtn {
-    bottom: -55px;
-    font-size: 18px;
+    bottom: -65px;
+  }
+}
+
+@media (max-width: 510px) {
+  .aboutListElement {
+    gap: 25px;
+    flex-direction: column-reverse;
+    height: 100%;
+    padding-right: 5px;
+  }
+  .topQuestionContainer {
+    margin-top: 20px;
+  }
+  .aboutImages {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  .content {
+    gap: 0px;
+  }
+  .aboutContent {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    text-align: center;
+  }
+  .popup {
+    padding: 60px 10px 10px;
   }
 }
 </style>

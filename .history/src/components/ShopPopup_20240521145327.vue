@@ -154,41 +154,15 @@ h2 {
   cursor: pointer;
 }
 
-@media (max-width: 1200px) {
-  .vehicleGrid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 80px;
-  }
+@media (max-width: 1250px) {
 }
 
-@media (max-width: 1000px) {
-  .vehicleGrid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
-  }
-}
-
-@media (max-width: 800px) {
-  .vehicleGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
-}
-
-@media (max-width: 600px) {
-  .vehicleGrid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    height: calc(100% - 100px);
-  }
-  .shopContainer {
-    padding: 60px 10px 10px;
-  }
+@media (max-width: 900px) {
 }
 
 @media (max-width: 510px) {
-  h2 {
-    font-size: 20px;
+  .shopContainer {
+    padding: 60px 10px 10px;
   }
 }
 </style>

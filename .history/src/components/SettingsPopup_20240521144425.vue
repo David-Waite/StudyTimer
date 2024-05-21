@@ -213,24 +213,43 @@ input {
 
 @media (max-width: 450px) {
   .settings {
-    height: 55vh;
+    height: 70vh;
   }
   h1,
   .logoutBtn {
     font-size: 24px;
   }
   h1 {
-    top: -5px;
-  }
-  .logoutBtn {
-    bottom: -65px;
+    top: 2px;
   }
 }
 
-@media (max-width: 360px) {
-  .logoutBtn {
-    bottom: -55px;
-    font-size: 18px;
+@media (max-width: 510px) {
+  .aboutListElement {
+    gap: 25px;
+    flex-direction: column-reverse;
+    height: 100%;
+    padding-right: 5px;
+  }
+  .topQuestionContainer {
+    margin-top: 20px;
+  }
+  .aboutImages {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  .content {
+    gap: 0px;
+  }
+  .aboutContent {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    text-align: center;
+  }
+  .popup {
+    padding: 60px 10px 10px;
   }
 }
 </style>

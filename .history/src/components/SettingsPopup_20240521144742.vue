@@ -213,7 +213,7 @@ input {
 
 @media (max-width: 450px) {
   .settings {
-    height: 55vh;
+    height: 60vh;
   }
   h1,
   .logoutBtn {
@@ -228,9 +228,38 @@ input {
 }
 
 @media (max-width: 360px) {
-  .logoutBtn {
-    bottom: -55px;
-    font-size: 18px;
+  .settings {
+    padding: 60px 10px 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 510px) {
+  .aboutListElement {
+    gap: 25px;
+    flex-direction: column-reverse;
+    height: 100%;
+    padding-right: 5px;
+  }
+  .topQuestionContainer {
+    margin-top: 20px;
+  }
+  .aboutImages {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  .content {
+    gap: 0px;
+  }
+  .aboutContent {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    text-align: center;
+  }
+  .popup {
+    padding: 60px 10px 10px;
   }
 }
 </style>

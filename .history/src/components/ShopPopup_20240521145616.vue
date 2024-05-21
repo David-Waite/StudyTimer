@@ -179,7 +179,6 @@ h2 {
   .vehicleGrid {
     grid-template-columns: 1fr;
     gap: 40px;
-    height: calc(100% - 100px);
   }
   .shopContainer {
     padding: 60px 10px 10px;

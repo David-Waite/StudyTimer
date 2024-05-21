@@ -199,38 +199,52 @@ input {
   width: 100%;
 }
 
-@media (max-width: 700px) {
-  .settings {
-    width: 95vw;
+@media (max-width: 1250px) {
+  .content {
+    flex-direction: column;
+    gap: 100px;
   }
 }
 
-@media (max-width: 500px) {
-  label {
-    font-size: 16px;
+@media (max-width: 900px) {
+  .aboutListElement h2 {
+    font-size: 20px;
+  }
+  .aboutImages {
+    max-width: 75px;
+    max-height: 75px;
+  }
+  .aboutListElement {
+    gap: 25px;
   }
 }
 
-@media (max-width: 450px) {
-  .settings {
-    height: 55vh;
+@media (max-width: 510px) {
+  .aboutListElement {
+    gap: 25px;
+    flex-direction: column-reverse;
+    height: 100%;
+    padding-right: 5px;
   }
-  h1,
-  .logoutBtn {
-    font-size: 24px;
+  .topQuestionContainer {
+    margin-top: 20px;
   }
-  h1 {
-    top: -5px;
+  .aboutImages {
+    max-width: 100px;
+    max-height: 100px;
   }
-  .logoutBtn {
-    bottom: -65px;
+  .content {
+    gap: 0px;
   }
-}
-
-@media (max-width: 360px) {
-  .logoutBtn {
-    bottom: -55px;
-    font-size: 18px;
+  .aboutContent {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    text-align: center;
+  }
+  .popup {
+    padding: 60px 10px 10px;
   }
 }
 </style>
