@@ -227,7 +227,7 @@ input {
   }
 }
 
-@media (max-width: 4000px) {
+@media (max-width: 360px) {
   .settings {
     height: 65vh;
   }

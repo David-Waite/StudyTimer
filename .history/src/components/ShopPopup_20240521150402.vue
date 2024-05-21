@@ -72,6 +72,7 @@ export default {
 }
 .btn {
   border-radius: 50px;
+  background-color: green;
   font-weight: 800;
   cursor: pointer;
   border: none;
@@ -173,8 +174,6 @@ h2 {
     gap: 40px;
   }
   .shopContainer {
-    top: 55%;
-    height: 80vh;
   }
 }
 
@@ -186,9 +185,6 @@ h2 {
   }
   .shopContainer {
     padding: 60px 10px 10px;
-  }
-  .btn {
-    font-size: 16px;
   }
 }
 </style>

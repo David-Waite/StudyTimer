@@ -187,8 +187,5 @@ h2 {
   .shopContainer {
     padding: 60px 10px 10px;
   }
-  .btn {
-    font-size: 16px;
-  }
 }
 </style>

@@ -188,7 +188,13 @@ h2 {
     padding: 60px 10px 10px;
   }
   .btn {
+    border-radius: 50px;
+    font-weight: 800;
+    cursor: pointer;
     font-size: 16px;
+    border: none;
+    width: 100%;
+    padding: 10px;
   }
 }
 </style>
