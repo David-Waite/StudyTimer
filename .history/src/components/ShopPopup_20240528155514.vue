@@ -20,6 +20,7 @@ export default {
     return {
       page: 1,
       perPage: 1,
+
       auth: '',
       open: true
     }
@@ -46,14 +47,34 @@ export default {
     <h1>SHOP</h1>
     <div class="close" @click="close"><BIconXLg /></div>
     <h2>Pomodoro dollars: ${{ timeStudying }}</h2>
+    <!-- <div class="vehicleGrid">
+      <div class="vehicleContainer" v-for="(vehicle, index) in vehicles" v-bind:key="index">
+        <img
+          class="vehicleImage"
+          :src="(vehicle.name == `Van` && Van) || (vehicle.name == `The Ghost` && TheGhost)"
+          alt="hi"
+        />
 
+        <h3 class="vehicleName">"{{ vehicle.name }}"</h3>
+
+        <button class="buy btn" v-if="vehicle.status == 'buy'" @click="buyVehicle(vehicle)">
+          ${{ vehicle.price }}
+        </button>
+        <button class="equiped btn" v-if="vehicle.status == 'equipped'">Equipped</button>
+        <button class="equip btn" v-if="vehicle.status == 'equip'" @click="equipVehicle(vehicle)">
+          Equip
+        </button>
+      </div>
+    </div> -->
+    <!-- here -->
     <div>
       <table class="table">
         <thead>
           <tr>
             <th scope="col">Photo</th>
             <th scope="col">Name</th>
-            <th scope="col">Status</th>
+            <th scope="col">Price</th>
+            <th scope="col">Button</th>
           </tr>
         </thead>
         <tbody>
@@ -65,19 +86,6 @@ export default {
                 :src="(vehicle.name == `Van` && Van) || (vehicle.name == `The Ghost` && TheGhost)"
                 alt="hi"
               />
-            </td>
-            <td>
-              <button class="buy btn" v-if="vehicle.status == 'buy'" @click="buyVehicle(vehicle)">
-                ${{ vehicle.price }}
-              </button>
-              <button class="equiped btn" v-if="vehicle.status == 'equipped'">Equipped</button>
-              <button
-                class="equip btn"
-                v-if="vehicle.status == 'equip'"
-                @click="equipVehicle(vehicle)"
-              >
-                Equip
-              </button>
             </td>
           </tr>
         </tbody>
@@ -96,10 +104,6 @@ export default {
 
 <style scoped>
 @import 'bootstrap/dist/css/bootstrap.min.css';
-.table {
-  overflow-y: scroll;
-  height: calc(100% - 40px);
-}
 .shopContainer {
   border: 7px solid #551d1b;
   border-radius: 60px;
@@ -170,7 +174,7 @@ export default {
   font-weight: 800;
 }
 .vehicleImage {
-  height: 100px;
+  width: 100%;
   object-fit: cover;
 }
 h1 {

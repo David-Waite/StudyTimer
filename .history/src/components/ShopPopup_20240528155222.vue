@@ -19,7 +19,34 @@ export default {
   data() {
     return {
       page: 1,
-      perPage: 1,
+      perPage: 3,
+      studentMarks: [
+        { name: 'David', mark: 97 },
+        { name: 'Cassie', mark: 98 },
+        { name: 'Tom', mark: 90 },
+        { name: 'Jake', mark: 43 },
+        { name: 'Emily', mark: 2 },
+        { name: 'Alex', mark: 52 },
+        { name: 'Hannah', mark: 19 },
+        { name: 'Bean', mark: 56 },
+        { name: 'Luke', mark: 48 },
+        { name: 'Novia', mark: 27 },
+        { name: 'Narla', mark: 92 },
+        { name: 'Charlie', mark: 34 },
+        { name: 'Georgie', mark: 66 },
+        { name: 'Dav', mark: 98 },
+        { name: 'Susan', mark: 82 },
+        { name: 'Heather', mark: 40 },
+        { name: 'Daniel', mark: 30 },
+        { name: 'Kenau', mark: 13 },
+        { name: 'Amber', mark: 10 },
+        { name: 'Sophie', mark: 3 },
+        { name: 'Noah', mark: 72 },
+        { name: 'Nic', mark: 23 },
+        { name: 'Grace', mark: 26 },
+        { name: 'Robert', mark: 82 },
+        { name: 'Gabbie', mark: 100 }
+      ],
       auth: '',
       open: true
     }
@@ -46,18 +73,38 @@ export default {
     <h1>SHOP</h1>
     <div class="close" @click="close"><BIconXLg /></div>
     <h2>Pomodoro dollars: ${{ timeStudying }}</h2>
+    <!-- <div class="vehicleGrid">
+      <div class="vehicleContainer" v-for="(vehicle, index) in vehicles" v-bind:key="index">
+        <img
+          class="vehicleImage"
+          :src="(vehicle.name == `Van` && Van) || (vehicle.name == `The Ghost` && TheGhost)"
+          alt="hi"
+        />
 
+        <h3 class="vehicleName">"{{ vehicle.name }}"</h3>
+
+        <button class="buy btn" v-if="vehicle.status == 'buy'" @click="buyVehicle(vehicle)">
+          ${{ vehicle.price }}
+        </button>
+        <button class="equiped btn" v-if="vehicle.status == 'equipped'">Equipped</button>
+        <button class="equip btn" v-if="vehicle.status == 'equip'" @click="equipVehicle(vehicle)">
+          Equip
+        </button>
+      </div>
+    </div> -->
+    <!-- here -->
     <div>
       <table class="table">
         <thead>
           <tr>
             <th scope="col">Photo</th>
             <th scope="col">Name</th>
-            <th scope="col">Status</th>
+            <th scope="col">Price</th>
+            <th scope="col">Button</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(vehicle, index) in vehicles" :key="index">
+          <tr v-for="(vehicle, index) in vehicle" :key="index">
             <td>{{ vehicle.name }}</td>
             <td>
               <img
@@ -65,19 +112,6 @@ export default {
                 :src="(vehicle.name == `Van` && Van) || (vehicle.name == `The Ghost` && TheGhost)"
                 alt="hi"
               />
-            </td>
-            <td>
-              <button class="buy btn" v-if="vehicle.status == 'buy'" @click="buyVehicle(vehicle)">
-                ${{ vehicle.price }}
-              </button>
-              <button class="equiped btn" v-if="vehicle.status == 'equipped'">Equipped</button>
-              <button
-                class="equip btn"
-                v-if="vehicle.status == 'equip'"
-                @click="equipVehicle(vehicle)"
-              >
-                Equip
-              </button>
             </td>
           </tr>
         </tbody>
@@ -96,10 +130,6 @@ export default {
 
 <style scoped>
 @import 'bootstrap/dist/css/bootstrap.min.css';
-.table {
-  overflow-y: scroll;
-  height: calc(100% - 40px);
-}
 .shopContainer {
   border: 7px solid #551d1b;
   border-radius: 60px;
@@ -170,7 +200,7 @@ export default {
   font-weight: 800;
 }
 .vehicleImage {
-  height: 100px;
+  width: 100%;
   object-fit: cover;
 }
 h1 {

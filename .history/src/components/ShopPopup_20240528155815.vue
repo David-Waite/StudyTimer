@@ -46,7 +46,26 @@ export default {
     <h1>SHOP</h1>
     <div class="close" @click="close"><BIconXLg /></div>
     <h2>Pomodoro dollars: ${{ timeStudying }}</h2>
+    <!-- <div class="vehicleGrid">
+      <div class="vehicleContainer" v-for="(vehicle, index) in vehicles" v-bind:key="index">
+        <img
+          class="vehicleImage"
+          :src="(vehicle.name == `Van` && Van) || (vehicle.name == `The Ghost` && TheGhost)"
+          alt="hi"
+        />
 
+        <h3 class="vehicleName">"{{ vehicle.name }}"</h3>
+
+        <button class="buy btn" v-if="vehicle.status == 'buy'" @click="buyVehicle(vehicle)">
+          ${{ vehicle.price }}
+        </button>
+        <button class="equiped btn" v-if="vehicle.status == 'equipped'">Equipped</button>
+        <button class="equip btn" v-if="vehicle.status == 'equip'" @click="equipVehicle(vehicle)">
+          Equip
+        </button>
+      </div>
+    </div> -->
+    <!-- here -->
     <div>
       <table class="table">
         <thead>
@@ -170,7 +189,7 @@ export default {
   font-weight: 800;
 }
 .vehicleImage {
-  height: 100px;
+  width: 100%;
   object-fit: cover;
 }
 h1 {

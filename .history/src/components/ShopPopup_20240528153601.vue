@@ -18,8 +18,6 @@ export default {
   },
   data() {
     return {
-      page: 1,
-      perPage: 1,
       auth: '',
       open: true
     }
@@ -27,18 +25,10 @@ export default {
   methods: {
     close() {
       this.$router.push('/')
-    },
-    paginate(page) {
-      this.page = page
     }
   },
-  computed: {
-    paginatedData() {
-      const start = (this.page - 1) * this.perPage
-      const end = start + this.perPage
-      return this.vehicle.slice(start, end)
-    }
-  }
+  computed() {},
+  mounted() {}
 }
 </script>
 <template>
@@ -46,60 +36,29 @@ export default {
     <h1>SHOP</h1>
     <div class="close" @click="close"><BIconXLg /></div>
     <h2>Pomodoro dollars: ${{ timeStudying }}</h2>
+    <div class="vehicleGrid">
+      <div class="vehicleContainer" v-for="(vehicle, index) in vehicles" v-bind:key="index">
+        <img
+          class="vehicleImage"
+          :src="(vehicle.name == `Van` && Van) || (vehicle.name == `The Ghost` && TheGhost)"
+          alt="hi"
+        />
 
-    <div>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Photo</th>
-            <th scope="col">Name</th>
-            <th scope="col">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(vehicle, index) in vehicles" :key="index">
-            <td>{{ vehicle.name }}</td>
-            <td>
-              <img
-                class="vehicleImage"
-                :src="(vehicle.name == `Van` && Van) || (vehicle.name == `The Ghost` && TheGhost)"
-                alt="hi"
-              />
-            </td>
-            <td>
-              <button class="buy btn" v-if="vehicle.status == 'buy'" @click="buyVehicle(vehicle)">
-                ${{ vehicle.price }}
-              </button>
-              <button class="equiped btn" v-if="vehicle.status == 'equipped'">Equipped</button>
-              <button
-                class="equip btn"
-                v-if="vehicle.status == 'equip'"
-                @click="equipVehicle(vehicle)"
-              >
-                Equip
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <h3 class="vehicleName">"{{ vehicle.name }}"</h3>
 
-      <paginate
-        :page-count="Math.ceil(25 / 3)"
-        :click-handler="paginate"
-        :prev-text="'Prev Page'"
-        :next-text="'Next Page'"
-        :container-class="'pagination'"
-      ></paginate>
+        <button class="buy btn" v-if="vehicle.status == 'buy'" @click="buyVehicle(vehicle)">
+          ${{ vehicle.price }}
+        </button>
+        <button class="equiped btn" v-if="vehicle.status == 'equipped'">Equipped</button>
+        <button class="equip btn" v-if="vehicle.status == 'equip'" @click="equipVehicle(vehicle)">
+          Equip
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-@import 'bootstrap/dist/css/bootstrap.min.css';
-.table {
-  overflow-y: scroll;
-  height: calc(100% - 40px);
-}
 .shopContainer {
   border: 7px solid #551d1b;
   border-radius: 60px;
@@ -170,7 +129,7 @@ export default {
   font-weight: 800;
 }
 .vehicleImage {
-  height: 100px;
+  width: 100%;
   object-fit: cover;
 }
 h1 {
