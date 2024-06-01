@@ -125,10 +125,6 @@ export default {
 
 <style scoped>
 @import 'bootstrap/dist/css/bootstrap.min.css';
-.photoContainer {
-  display: flex;
-  align-items: center;
-}
 .like {
   display: flex;
   align-items: center;

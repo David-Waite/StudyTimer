@@ -62,11 +62,12 @@ export default {
             <th scope="col">Photo</th>
 
             <th scope="col">Status</th>
+            <th scope="col">Likes</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(vehicle, index) in paginatedData" :key="index">
-            <td class="photoContainer">
+            <td>
               <img
                 class="vehicleImage"
                 :src="(vehicle.name == `Van` && Van) || (vehicle.name == `The Ghost` && TheGhost)"
@@ -107,6 +108,28 @@ export default {
                 Equip
               </button>
             </td>
+            <td>
+              <div class="like" v-if="vehicleData">
+                <BIconHandThumbsUp
+                  v-if="
+                    !vehicleData
+                      .find((vehicles) => vehicles.name === vehicle.name)
+                      .likes.find((email) => email === userEmail)
+                  "
+                  @click="likeVehicle(vehicle)"
+                />
+                <BIconHandThumbsUpFill
+                  v-if="
+                    vehicleData
+                      .find((vehicles) => vehicles.name === vehicle.name)
+                      .likes.find((email) => email === userEmail)
+                  "
+                  @click="likeVehicle(vehicle)"
+                />
+
+                {{ vehicleData.find((vehicles) => vehicles.name === vehicle.name).likes.length }}
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -125,10 +148,6 @@ export default {
 
 <style scoped>
 @import 'bootstrap/dist/css/bootstrap.min.css';
-.photoContainer {
-  display: flex;
-  align-items: center;
-}
 .like {
   display: flex;
   align-items: center;
