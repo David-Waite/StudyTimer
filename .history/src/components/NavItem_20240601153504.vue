@@ -6,6 +6,7 @@ import InfoPopup from './InfoPopup.vue'
 import router from '@/router'
 import { doc, getDoc } from 'firebase/firestore'
 import db from '@/main'
+import { push } from 'firebase/database'
 </script>
 
 <script>
@@ -59,14 +60,11 @@ export default {
       </div>
       <div class="rightNav">
         <BIconInfoCircleFill @click="toggleOpen" />
-        <RouterLink @click="openHelp = false" v-if="$route.name === `settings`" to="/"
+        <RouterLink v-if="$route.name === `settings`" to="/"
           ><BIconGearFill />
           <p>settings</p></RouterLink
         >
-        <RouterLink
-          @click="openHelp = false"
-          v-if="$route.name === `home` || $route.name === 'shop'"
-          to="/settings"
+        <RouterLink v-if="$route.name === `home` || $route.name === 'shop'" to="/settings"
           ><p>settings</p>
           <BIconGearFill
         /></RouterLink>

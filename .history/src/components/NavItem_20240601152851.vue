@@ -20,8 +20,8 @@ export default {
   },
   methods: {
     toggleOpen() {
-      router.push('/')
       this.openHelp = !this.openHelp
+      this.$router.push('/')
     },
     handleSignOut() {
       signOut(this.auth)
@@ -58,18 +58,16 @@ export default {
         >
       </div>
       <div class="rightNav">
-        <BIconInfoCircleFill @click="toggleOpen" />
-        <RouterLink @click="openHelp = false" v-if="$route.name === `settings`" to="/"
+        <RouterLink v-if="$route.name === `settings`" to="/"
           ><BIconGearFill />
           <p>settings</p></RouterLink
         >
-        <RouterLink
-          @click="openHelp = false"
-          v-if="$route.name === `home` || $route.name === 'shop'"
-          to="/settings"
-          ><p>settings</p>
-          <BIconGearFill
-        /></RouterLink>
+        <div>
+          <RouterLink v-if="$route.name === `home` || $route.name === 'shop'" to="/settings"
+            ><p>settings</p>
+            <BIconGearFill /></RouterLink
+          ><BIconInfoCircleFill @click="toggleOpen" />
+        </div>
       </div>
     </div>
   </div>

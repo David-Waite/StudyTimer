@@ -110,11 +110,14 @@ export default {
   height: 100vh;
 }
 
-.start .paused {
+.start {
   animation-play-state: paused;
 }
 .running {
   animation-play-state: running;
+}
+.paused {
+  animation-play-state: paused;
 }
 
 @keyframes studyTimeForeground {
