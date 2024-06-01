@@ -1,8 +1,10 @@
 <script setup>
-import { signInWithEmailAndPassword, getAuth } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
+import { doc, setDoc } from 'firebase/firestore'
+import db from '@/main'
 import { RouterLink } from 'vue-router'
-import InfoPopup from '../components/InfoPopup.vue'
 import { BIconInfoCircleFill } from 'bootstrap-icons-vue'
+import InfoPopup from '@/components/InfoPopup.vue'
 </script>
 
 <template>
@@ -11,34 +13,18 @@ import { BIconInfoCircleFill } from 'bootstrap-icons-vue'
   <div class="container">
     <img class="background" src="../assets/imageBackface.png" alt="background image " />
     <h1>A Trip to <br /><span>Pomodoro</span></h1>
-
     <form @submit.prevent="registerUser">
-      <div>
-        <label for="email">email</label>
-        <input v-model="email" type="text" placeholder="Email" required id="email" />
-        <p
-          class="errorMsg"
-          v-if="
-            errorMessage === `Invalid email address` ||
-            errorMessage === `No account with that email found`
-          "
-        >
-          <i class="bi bi-exclamation-circle-fill"></i>{{ errorMessage }}
-        </p>
-      </div>
-      <div>
-        <label for="password">Password</label>
-        <input v-model="password" type="password" placeholder="Password" required id="password" />
-        <p v-if="errorMessage === `Password was incorrect`" class="errorMsg">
-          <i class="bi bi-exclamation-circle-fill"></i>{{ errorMessage }}
-        </p>
-      </div>
-
-      <button class="button-19" type="submit">LOGIN</button>
+      <label for="email">email</label>
+      <input v-model="email" type="email" placeholder="Email" required id="email" />
+      <label for="username">username</label>
+      <input v-model="username" type="text" placeholder="Username" required id="username" />
+      <label for="password">password</label>
+      <input v-model="password" type="password" placeholder="Password" required id="password" />
+      <button type="submit">Sign Up</button>
     </form>
-  </div>
-  <div class="messages">
-    <h2>Don't have an account? <RouterLink class="link" to="/signup">Click here</RouterLink></h2>
+    <div class="messages">
+      <h2>Have an account? <RouterLink class="link" to="/login">Click here</RouterLink></h2>
+    </div>
   </div>
 </template>
 
@@ -47,8 +33,9 @@ export default {
   data() {
     return {
       email: '',
+      username: '',
       password: '',
-      errorMessage: '',
+      auth: '',
       openHelp: false
     }
   },
@@ -59,34 +46,41 @@ export default {
     async registerUser() {
       try {
         console.log(this.email, this.password)
+        this.auth = getAuth()
         // Use Firebase authentication API to create a new user
-        await signInWithEmailAndPassword(getAuth(), this.email, this.password)
+        await createUserWithEmailAndPassword(this.auth, this.email, this.password)
+
         // Redirect to the home page or another route
+        const userRef = doc(db, 'users', this.auth.currentUser.uid)
+        // Example: Add user-specific data
+        await setDoc(userRef, {
+          username: this.username,
+          email: this.email,
+          settings: {
+            pomodoroTime: 0.15,
+            shortRest: 0.1,
+            longRest: 30,
+            pomodoroTillLongRest: 4
+          },
+          timeStudying: 0,
+          vehiclesOwned: [
+            {
+              name: 'Van',
+              price: 0,
+              status: 'equipped'
+            }
+          ]
+        })
+
+        // Other user properties}
         this.$router.push('/')
       } catch (error) {
-        console.log(error.code)
-        switch (error.code) {
-          case 'auth/user-not-found':
-            this.errorMessage = 'No account with that email found'
-            break
-          case 'auth/invalid-email':
-            this.errorMessage = 'Invalid email address'
-            break
-          case 'auth/invalid-credential':
-            this.errorMessage = 'Password was incorrect'
-            break
-          default:
-            this.errorMessage = 'Something went wrong'
-            break
-        }
-
         console.error('Error creating user:', error)
       }
     }
   }
 }
 </script>
-
 <style scoped>
 label {
   color: transparent;
@@ -132,9 +126,6 @@ h1 span {
   width: 100%;
   text-align: center;
 }
-.messages h2 {
-  font-size: 16.6px;
-}
 form {
   display: flex;
   flex-direction: column;
@@ -151,21 +142,13 @@ input {
 .errorMsg {
   position: absolute;
   font-size: 16.67px;
-  color: rgb(124, 0, 0);
-  font-weight: 900;
-  margin-top: 3px;
-  padding: 0px 10px;
+  color: red;
   display: flex;
   align-items: center;
-  background-color: white;
-  border-radius: 50px;
   gap: 5px;
 }
 .errorMsg i {
   font-size: 14px;
-}
-.link {
-  color: #0000ee;
 }
 
 button {
@@ -181,6 +164,9 @@ button:hover {
   background-color: white;
   border-color: black;
   color: black;
+}
+.link {
+  color: #0000ee;
 }
 @media (max-width: 400px) {
   input,

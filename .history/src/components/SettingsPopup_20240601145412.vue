@@ -77,7 +77,7 @@ export default {
           <p>M</p>
         </div>
 
-        <label for="pomodoroTillLongRest">Study periods until long rest</label>
+        <label for="longRest">Study periods until long rest</label>
         <div class="inputcontainer">
           <input
             v-model="settingsInput.pomodoroTillLongRest"

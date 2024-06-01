@@ -38,7 +38,7 @@ import { BIconInfoCircleFill } from 'bootstrap-icons-vue'
     </form>
   </div>
   <div class="messages">
-    <h2>Don't have an account? <RouterLink class="link" to="/signup">Click here</RouterLink></h2>
+    <p>Don't have an account? <RouterLink class="link" to="/signup">Click here</RouterLink></p>
   </div>
 </template>
 
@@ -88,10 +88,6 @@ export default {
 </script>
 
 <style scoped>
-label {
-  color: transparent;
-  position: absolute;
-}
 .infoBtn {
   position: absolute;
   right: 20px;
@@ -132,9 +128,6 @@ h1 span {
   width: 100%;
   text-align: center;
 }
-.messages h2 {
-  font-size: 16.6px;
-}
 form {
   display: flex;
   flex-direction: column;
@@ -151,14 +144,9 @@ input {
 .errorMsg {
   position: absolute;
   font-size: 16.67px;
-  color: rgb(124, 0, 0);
-  font-weight: 900;
-  margin-top: 3px;
-  padding: 0px 10px;
+  color: red;
   display: flex;
   align-items: center;
-  background-color: white;
-  border-radius: 50px;
   gap: 5px;
 }
 .errorMsg i {

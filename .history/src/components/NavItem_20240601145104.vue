@@ -58,14 +58,10 @@ export default {
         >
       </div>
       <div class="rightNav">
-        <RouterLink v-if="$route.name === `settings`" to="/"
-          ><BIconGearFill />
-          <p>settings</p></RouterLink
-        >
+        <RouterLink v-if="$route.name === `settings`" to="/"><BIconGearFill />settings</RouterLink>
 
         <RouterLink v-if="$route.name === `home` || $route.name === 'shop'" to="/settings"
-          ><p>settings</p>
-          <BIconGearFill /></RouterLink
+          >settings<BIconGearFill /></RouterLink
         ><BIconInfoCircleFill @click="toggleOpen" />
       </div>
     </div>
@@ -73,10 +69,6 @@ export default {
 </template>
 
 <style scoped>
-p {
-  color: transparent;
-  position: absolute;
-}
 .navOuterContainer {
   position: absolute;
   top: 0;

@@ -132,9 +132,6 @@ h1 span {
   width: 100%;
   text-align: center;
 }
-.messages h2 {
-  font-size: 16.6px;
-}
 form {
   display: flex;
   flex-direction: column;

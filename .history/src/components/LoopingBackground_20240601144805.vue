@@ -14,14 +14,9 @@ import TheGhostStill from '../assets/vehicles/shop/TheGhostStill.png'
       alt="image background"
     />
 
-    <img
-      class="image foreground"
-      :class="getStage"
-      src="../assets/foreground.png"
-      alt="image forground"
-    />
+    <img class="image foreground" :class="getStage" src="../assets/foreground.png" />
 
-    <img class="imageBackface" src="../assets/imageBackface.png" alt="imageBackface" />
+    <img class="imageBackface" src="../assets/imageBackface.png" />
 
     <img
       class="vehicle"

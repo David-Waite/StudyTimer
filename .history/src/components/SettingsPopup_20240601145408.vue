@@ -73,11 +73,17 @@ export default {
 
         <label for="longRest">Long rest</label>
         <div class="inputcontainer">
-          <input v-model="settingsInput.longRest" inputmode="numeric" id="longRest" step="0.01" />
+          <input
+            v-model="settingsInput.longRest"
+            inputmode="numeric"
+            id="longRest"
+            step="0.01"
+            id="longRest"
+          />
           <p>M</p>
         </div>
 
-        <label for="pomodoroTillLongRest">Study periods until long rest</label>
+        <label for="longRest">Study periods until long rest</label>
         <div class="inputcontainer">
           <input
             v-model="settingsInput.pomodoroTillLongRest"

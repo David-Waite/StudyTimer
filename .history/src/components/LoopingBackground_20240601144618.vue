@@ -7,21 +7,11 @@ import TheGhostStill from '../assets/vehicles/shop/TheGhostStill.png'
 </script>
 <template>
   <div class="outerContainer">
-    <img
-      class="image background"
-      :class="getStage"
-      src="../assets/background.png"
-      alt="image background"
-    />
+    <img class="image background" :class="getStage" src="../assets/background.png" />
 
-    <img
-      class="image foreground"
-      :class="getStage"
-      src="../assets/foreground.png"
-      alt="image forground"
-    />
+    <img class="image foreground" :class="getStage" src="../assets/foreground.png" />
 
-    <img class="imageBackface" src="../assets/imageBackface.png" alt="imageBackface" />
+    <img class="imageBackface" src="../assets/imageBackface.png" />
 
     <img
       class="vehicle"
@@ -30,7 +20,7 @@ import TheGhostStill from '../assets/vehicles/shop/TheGhostStill.png'
         (getEquippedVehicleName() == `Van` && VanMoving) ||
         (getEquippedVehicleName() == `The Ghost` && TheGhostMoving)
       "
-      :alt="getEquippedVehicleName()"
+      alt=""
     />
     <img
       v-if="stage === 'paused' || stage === 'start'"
@@ -39,7 +29,10 @@ import TheGhostStill from '../assets/vehicles/shop/TheGhostStill.png'
         (getEquippedVehicleName() == `Van` && VanStill) ||
         (getEquippedVehicleName() == `The Ghost` && TheGhostStill)
       "
-      :alt="getEquippedVehicleName()"
+      :alt="
+        (getEquippedVehicleName() == `Van` && VanStill) ||
+        (getEquippedVehicleName() == `The Ghost` && TheGhostStill)
+      "
     />
   </div>
 </template>

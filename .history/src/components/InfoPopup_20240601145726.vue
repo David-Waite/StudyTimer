@@ -82,7 +82,7 @@ export default {
           (Needed to use a api and a seach function for the assignment criteria so here's it is)
         </p>
         <p class="joke">{{ joke }}</p>
-        <label for="searchCars">Search</label><br />
+        <label for="searchCars">search</label><br />
         <input
           type="text"
           v-model="searchTerm"
@@ -90,8 +90,8 @@ export default {
           id="searchCars"
         />
         <br />
-        <lable for="checkVan">Van?</lable>
-        <input id="checkVan" type="checkbox" v-model="checkBox" />
+        <lable for="van">Van?<input id="van" type="checkbox" v-model="checkBox" /></lable>
+
         <ul>
           <li v-for="car in filteredCars" :key="car">
             {{ car }}

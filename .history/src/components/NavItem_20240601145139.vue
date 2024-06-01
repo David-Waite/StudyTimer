@@ -75,7 +75,6 @@ export default {
 <style scoped>
 p {
   color: transparent;
-  position: absolute;
 }
 .navOuterContainer {
   position: absolute;

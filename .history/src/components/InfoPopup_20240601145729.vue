@@ -90,8 +90,8 @@ export default {
           id="searchCars"
         />
         <br />
-        <lable for="checkVan">Van?</lable>
-        <input id="checkVan" type="checkbox" v-model="checkBox" />
+        <lable for="van">Van?<input id="van" type="checkbox" v-model="checkBox" /></lable>
+
         <ul>
           <li v-for="car in filteredCars" :key="car">
             {{ car }}

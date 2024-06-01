@@ -52,20 +52,13 @@ export default {
     <div class="navContainer" v-if="useRoute().path != '/login' && useRoute().path != '/signup'">
       <div>
         <RouterLink to="/">Welcome {{ userName }} </RouterLink>
-        <RouterLink to="/shop"
-          ><BIconShop />
-          <p>shop</p></RouterLink
-        >
+        <RouterLink to="/shop"><BIconShop />asdasd</RouterLink>
       </div>
       <div class="rightNav">
-        <RouterLink v-if="$route.name === `settings`" to="/"
-          ><BIconGearFill />
-          <p>settings</p></RouterLink
-        >
+        <RouterLink v-if="$route.name === `settings`" to="/"><BIconGearFill />asdsad</RouterLink>
 
         <RouterLink v-if="$route.name === `home` || $route.name === 'shop'" to="/settings"
-          ><p>settings</p>
-          <BIconGearFill /></RouterLink
+          >settings<BIconGearFill /></RouterLink
         ><BIconInfoCircleFill @click="toggleOpen" />
       </div>
     </div>
@@ -73,10 +66,6 @@ export default {
 </template>
 
 <style scoped>
-p {
-  color: transparent;
-  position: absolute;
-}
 .navOuterContainer {
   position: absolute;
   top: 0;

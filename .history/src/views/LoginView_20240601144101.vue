@@ -133,7 +133,7 @@ h1 span {
   text-align: center;
 }
 .messages h2 {
-  font-size: 16.6px;
+  font-size: 16px;
 }
 form {
   display: flex;
