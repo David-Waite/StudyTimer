@@ -91,25 +91,27 @@ export default {
               </button>
             </td>
             <td>
-              <div class="like" v-if="vehicleData">
-                <BIconHandThumbsUp
-                  v-if="
-                    !vehicleData
-                      .find((vehicles) => vehicles.name === vehicle.name)
-                      .likes.find((email) => email === userEmail)
-                  "
-                  @click="likeVehicle(vehicle)"
-                />
-                <BIconHandThumbsUpFill
-                  v-if="
-                    vehicleData
-                      .find((vehicles) => vehicles.name === vehicle.name)
-                      .likes.find((email) => email === userEmail)
-                  "
-                  @click="likeVehicle(vehicle)"
-                />
-
-                {{ vehicleData.find((vehicles) => vehicles.name === vehicle.name).likes.length }}
+              <div class="like">
+                <p v-if="vehicleData">
+                  <BIconHandThumbsUp
+                    v-if="
+                      !vehicleData
+                        .find((vehicles) => vehicles.name === vehicle.name)
+                        .likes.find((email) => email === userEmail)
+                    "
+                    @click="likeVehicle(vehicle)"
+                  />
+                  <BIconHandThumbsUpFill
+                    v-if="
+                      vehicleData
+                        .find((vehicles) => vehicles.name === vehicle.name)
+                        .likes.find((email) => email === userEmail)
+                    "
+                    @click="likeVehicle(vehicle)"
+                  />{{
+                    vehicleData.find((vehicles) => vehicles.name === vehicle.name).likes.length
+                  }}
+                </p>
               </div>
             </td>
           </tr>
@@ -132,9 +134,8 @@ export default {
 @import 'bootstrap/dist/css/bootstrap.min.css';
 .like {
   display: flex;
-  align-items: center;
-
-  gap: 3px;
+  align-items: start;
+  background-color: red;
 }
 .like svg {
   cursor: pointer;

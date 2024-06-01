@@ -16,8 +16,7 @@ export default {
     vehicleData: Object,
     buyVehicle: Function,
     equipVehicle: Function,
-    likeVehicle: Function,
-    userEmail: String
+    likeVechicle: Function
   },
   data() {
     return {
@@ -91,25 +90,8 @@ export default {
               </button>
             </td>
             <td>
-              <div class="like" v-if="vehicleData">
-                <BIconHandThumbsUp
-                  v-if="
-                    !vehicleData
-                      .find((vehicles) => vehicles.name === vehicle.name)
-                      .likes.find((email) => email === userEmail)
-                  "
-                  @click="likeVehicle(vehicle)"
-                />
-                <BIconHandThumbsUpFill
-                  v-if="
-                    vehicleData
-                      .find((vehicles) => vehicles.name === vehicle.name)
-                      .likes.find((email) => email === userEmail)
-                  "
-                  @click="likeVehicle(vehicle)"
-                />
-
-                {{ vehicleData.find((vehicles) => vehicles.name === vehicle.name).likes.length }}
+              <div class="like">
+                <p><BIconHandThumbsUp @click="likeVechicle(vehicle)" />{{ vehicle }}</p>
               </div>
             </td>
           </tr>
@@ -133,11 +115,6 @@ export default {
 .like {
   display: flex;
   align-items: center;
-
-  gap: 3px;
-}
-.like svg {
-  cursor: pointer;
 }
 .table {
   overflow-y: scroll;

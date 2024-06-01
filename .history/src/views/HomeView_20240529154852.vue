@@ -82,24 +82,10 @@ export default {
         this.fetchUser(this.auth.currentUser)
       }
     },
-    async likeVehicle(vehicle) {
-      const vehiclesSnapshot = await getDoc(doc(db, 'vehicles', 'nuafCZUEWigEf4DpiZ3p'))
-      let vehiclesData = vehiclesSnapshot.data()
-
-      let vehicleToUpdate = vehiclesData.List.find((v) => v.name === vehicle.name)
-
-      if (vehicleToUpdate.likes.includes(this.userData.email)) {
-        vehicleToUpdate.likes = vehicleToUpdate.likes.filter(
-          (email) => email !== this.userData.email
-        )
-      } else {
-        vehicleToUpdate.likes.push(this.userData.email)
-      }
-
-      await updateDoc(doc(db, 'vehicles', 'nuafCZUEWigEf4DpiZ3p'), { List: vehiclesData.List })
-      this.fetchUser(this.auth.currentUser)
+    async likeVechicle(vehicle) {
+      console.log(vehicle)
+      console.log(thisuserData)
     },
-
     async equipVehicle(vehicle) {
       const vehicleToUnequip = this.userData.vehiclesOwned.findIndex((v) => v.status === 'equipped')
 
@@ -158,12 +144,10 @@ export default {
       "
     />
     <ShopPopup
-      v-if="userData"
       :buyVehicle="buyVehicle"
-      :userEmail="userData.email"
       :equipVehicle="equipVehicle"
       :vehicleData="vehicleData"
-      :likeVehicle="likeVehicle"
+      :likeVechicle="likeVechicle"
       :timeStudying="userData && userData.timeStudying"
       :vehicles="userData && userData.vehiclesOwned"
     />

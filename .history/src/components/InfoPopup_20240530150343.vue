@@ -30,11 +30,6 @@ export default {
   },
   computed: {
     filteredCars() {
-      if (this.checkBox) {
-        return this.cars.filter(
-          (car) => car.toLowerCase().includes(this.searchTerm.toLowerCase()) || car === 'Van'
-        )
-      }
       return this.cars.filter((car) => car.toLowerCase().includes(this.searchTerm.toLowerCase()))
     }
   },

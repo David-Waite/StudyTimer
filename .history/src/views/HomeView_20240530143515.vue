@@ -158,7 +158,6 @@ export default {
       "
     />
     <ShopPopup
-      v-if="userData"
       :buyVehicle="buyVehicle"
       :userEmail="userData.email"
       :equipVehicle="equipVehicle"

@@ -1,5 +1,5 @@
 <script setup>
-import { BIconXLg, BIconHandThumbsUp, BIconHandThumbsUpFill } from 'bootstrap-icons-vue'
+import { BIconXLg } from 'bootstrap-icons-vue'
 import Van from '../assets/vehicles/shop/VanStill.png'
 import TheGhost from '../assets/vehicles/shop/TheGhostStill.png'
 import Paginate from 'vuejs-paginate-next'
@@ -13,11 +13,8 @@ export default {
   props: {
     timeStudying: Number,
     vehicles: Array,
-    vehicleData: Object,
     buyVehicle: Function,
-    equipVehicle: Function,
-    likeVehicle: Function,
-    userEmail: String
+    equipVehicle: Function
   },
   data() {
     return {
@@ -90,28 +87,7 @@ export default {
                 Equip
               </button>
             </td>
-            <td>
-              <div class="like" v-if="vehicleData">
-                <BIconHandThumbsUp
-                  v-if="
-                    !vehicleData
-                      .find((vehicles) => vehicles.name === vehicle.name)
-                      .likes.find((email) => email === userEmail)
-                  "
-                  @click="likeVehicle(vehicle)"
-                />
-                <BIconHandThumbsUpFill
-                  v-if="
-                    vehicleData
-                      .find((vehicles) => vehicles.name === vehicle.name)
-                      .likes.find((email) => email === userEmail)
-                  "
-                  @click="likeVehicle(vehicle)"
-                />
-
-                {{ vehicleData.find((vehicles) => vehicles.name === vehicle.name).likes.length }}
-              </div>
-            </td>
+            <td><button>Like</button>34</td>
           </tr>
         </tbody>
       </table>
@@ -130,15 +106,7 @@ export default {
 
 <style scoped>
 @import 'bootstrap/dist/css/bootstrap.min.css';
-.like {
-  display: flex;
-  align-items: center;
 
-  gap: 3px;
-}
-.like svg {
-  cursor: pointer;
-}
 .table {
   overflow-y: scroll;
   height: calc(100% - 40px);

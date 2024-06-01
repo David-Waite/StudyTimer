@@ -12,8 +12,7 @@ export default {
     return {
       joke: '',
       cars: ['Van', 'The Ghost'],
-      searchTerm: '',
-      checkBox: ''
+      searchTerm: ''
     }
   },
   methods: {
@@ -30,11 +29,6 @@ export default {
   },
   computed: {
     filteredCars() {
-      if (this.checkBox) {
-        return this.cars.filter(
-          (car) => car.toLowerCase().includes(this.searchTerm.toLowerCase()) || car === 'Van'
-        )
-      }
       return this.cars.filter((car) => car.toLowerCase().includes(this.searchTerm.toLowerCase()))
     }
   },
@@ -84,8 +78,8 @@ export default {
         <p class="joke">{{ joke }}</p>
 
         <input type="text" v-model="searchTerm" placeholder="Search cars we offer" />
-        <div>Van?<input type="checkbox" v-model="checkBox" id="checkbox" /></div>
-
+        <div></div>
+        <input type="checkbox" v-model="checkBox" />
         <ul>
           <li v-for="car in filteredCars" :key="car">
             {{ car }}

@@ -134,6 +134,7 @@ export default {
   display: flex;
   align-items: center;
 
+  background-color: red;
   gap: 3px;
 }
 .like svg {

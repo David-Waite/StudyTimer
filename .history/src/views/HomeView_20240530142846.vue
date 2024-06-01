@@ -88,16 +88,23 @@ export default {
 
       let vehicleToUpdate = vehiclesData.List.find((v) => v.name === vehicle.name)
 
+      if (!vehicleToUpdate) {
+        throw new Error('Vehicle not found!')
+      }
+
+      // Check if user's email is in the likes array
       if (vehicleToUpdate.likes.includes(this.userData.email)) {
+        // If email is there, remove it
         vehicleToUpdate.likes = vehicleToUpdate.likes.filter(
           (email) => email !== this.userData.email
         )
       } else {
+        // If email is not there, add it
         vehicleToUpdate.likes.push(this.userData.email)
       }
 
+      // Update the document
       await updateDoc(doc(db, 'vehicles', 'nuafCZUEWigEf4DpiZ3p'), { List: vehiclesData.List })
-      this.fetchUser(this.auth.currentUser)
     },
 
     async equipVehicle(vehicle) {
@@ -158,9 +165,7 @@ export default {
       "
     />
     <ShopPopup
-      v-if="userData"
       :buyVehicle="buyVehicle"
-      :userEmail="userData.email"
       :equipVehicle="equipVehicle"
       :vehicleData="vehicleData"
       :likeVehicle="likeVehicle"

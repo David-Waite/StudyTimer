@@ -1,5 +1,5 @@
 <script setup>
-import { BIconXLg, BIconHandThumbsUp, BIconHandThumbsUpFill } from 'bootstrap-icons-vue'
+import { BIconXLg } from 'bootstrap-icons-vue'
 import Van from '../assets/vehicles/shop/VanStill.png'
 import TheGhost from '../assets/vehicles/shop/TheGhostStill.png'
 import Paginate from 'vuejs-paginate-next'
@@ -13,11 +13,8 @@ export default {
   props: {
     timeStudying: Number,
     vehicles: Array,
-    vehicleData: Object,
     buyVehicle: Function,
-    equipVehicle: Function,
-    likeVehicle: Function,
-    userEmail: String
+    equipVehicle: Function
   },
   data() {
     return {
@@ -39,11 +36,7 @@ export default {
     paginatedData() {
       const start = (this.page - 1) * this.perPage
       const end = start + this.perPage
-      if (this.vehicles) {
-        return this.vehicles.slice(start, end)
-      }
-
-      return { price: 0, name: 'Van', status: 'equipped' }
+      return this.vehicle.slice(start, end)
     }
   }
 }
@@ -51,7 +44,30 @@ export default {
 <template>
   <div v-if="$route.name === `shop`" class="shopContainer">
     <h1>SHOP</h1>
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Mark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(student, index) in paginatedData" :key="index">
+            <td>{{ student.name }}</td>
+            <td>{{ student.mark }}</td>
+          </tr>
+        </tbody>
+      </table>
 
+      <paginate
+        :page-count="Math.ceil(25 / 3)"
+        :click-handler="paginate"
+        :prev-text="'Prev Page'"
+        :next-text="'Next Page'"
+        :container-class="'pagination'"
+      ></paginate>
+    </div>
     <div class="close" @click="close"><BIconXLg /></div>
     <h2>Pomodoro dollars: ${{ timeStudying }}</h2>
 
@@ -62,20 +78,17 @@ export default {
             <th scope="col">Photo</th>
             <th scope="col">Name</th>
             <th scope="col">Status</th>
-            <th scope="col">Likes</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(vehicle, index) in paginatedData" :key="index">
+          <tr v-for="(vehicle, index) in vehicles" :key="index">
+            <td>{{ vehicle.name }}</td>
             <td>
               <img
                 class="vehicleImage"
                 :src="(vehicle.name == `Van` && Van) || (vehicle.name == `The Ghost` && TheGhost)"
                 alt="hi"
               />
-            </td>
-            <td>
-              {{ vehicle.name }}
             </td>
             <td>
               <button class="buy btn" v-if="vehicle.status == 'buy'" @click="buyVehicle(vehicle)">
@@ -90,35 +103,12 @@ export default {
                 Equip
               </button>
             </td>
-            <td>
-              <div class="like" v-if="vehicleData">
-                <BIconHandThumbsUp
-                  v-if="
-                    !vehicleData
-                      .find((vehicles) => vehicles.name === vehicle.name)
-                      .likes.find((email) => email === userEmail)
-                  "
-                  @click="likeVehicle(vehicle)"
-                />
-                <BIconHandThumbsUpFill
-                  v-if="
-                    vehicleData
-                      .find((vehicles) => vehicles.name === vehicle.name)
-                      .likes.find((email) => email === userEmail)
-                  "
-                  @click="likeVehicle(vehicle)"
-                />
-
-                {{ vehicleData.find((vehicles) => vehicles.name === vehicle.name).likes.length }}
-              </div>
-            </td>
           </tr>
         </tbody>
       </table>
 
       <paginate
-        v-if="vehicles"
-        :page-count="Math.ceil(vehicles.length / perPage)"
+        :page-count="Math.ceil(25 / 3)"
         :click-handler="paginate"
         :prev-text="'Prev Page'"
         :next-text="'Next Page'"
@@ -130,15 +120,6 @@ export default {
 
 <style scoped>
 @import 'bootstrap/dist/css/bootstrap.min.css';
-.like {
-  display: flex;
-  align-items: center;
-
-  gap: 3px;
-}
-.like svg {
-  cursor: pointer;
-}
 .table {
   overflow-y: scroll;
   height: calc(100% - 40px);

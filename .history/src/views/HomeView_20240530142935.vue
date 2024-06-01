@@ -97,7 +97,6 @@ export default {
       }
 
       await updateDoc(doc(db, 'vehicles', 'nuafCZUEWigEf4DpiZ3p'), { List: vehiclesData.List })
-      this.fetchUser(this.auth.currentUser)
     },
 
     async equipVehicle(vehicle) {
@@ -158,9 +157,7 @@ export default {
       "
     />
     <ShopPopup
-      v-if="userData"
       :buyVehicle="buyVehicle"
-      :userEmail="userData.email"
       :equipVehicle="equipVehicle"
       :vehicleData="vehicleData"
       :likeVehicle="likeVehicle"

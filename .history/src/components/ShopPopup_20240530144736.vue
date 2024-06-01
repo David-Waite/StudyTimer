@@ -133,8 +133,9 @@ export default {
 .like {
   display: flex;
   align-items: center;
-
-  gap: 3px;
+  justify-content: center;
+  background-color: red;
+  gap: 5px;
 }
 .like svg {
   cursor: pointer;

@@ -109,7 +109,9 @@ export default {
                   @click="likeVehicle(vehicle)"
                 />
 
-                {{ vehicleData.find((vehicles) => vehicles.name === vehicle.name).likes.length }}
+                <p>
+                  {{ vehicleData.find((vehicles) => vehicles.name === vehicle.name).likes.length }}
+                </p>
               </div>
             </td>
           </tr>
@@ -132,9 +134,9 @@ export default {
 @import 'bootstrap/dist/css/bootstrap.min.css';
 .like {
   display: flex;
-  align-items: center;
-
-  gap: 3px;
+  align-items: center
+  justify-content: center;
+  background-color: red;
 }
 .like svg {
   cursor: pointer;

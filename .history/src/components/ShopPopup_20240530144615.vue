@@ -109,7 +109,9 @@ export default {
                   @click="likeVehicle(vehicle)"
                 />
 
-                {{ vehicleData.find((vehicles) => vehicles.name === vehicle.name).likes.length }}
+                <p>
+                  {{ vehicleData.find((vehicles) => vehicles.name === vehicle.name).likes.length }}
+                </p>
               </div>
             </td>
           </tr>
@@ -133,8 +135,7 @@ export default {
 .like {
   display: flex;
   align-items: center;
-
-  gap: 3px;
+  background-color: red;
 }
 .like svg {
   cursor: pointer;
